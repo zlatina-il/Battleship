@@ -3,8 +3,8 @@ let logic={
     boardSize:10,
     ships:[
             {name: "battleship", length: 5, location:["00","01","02","03","04"], hits:["","","","",""]},
-            {name: "destroyer1", length: 3, location:["10","20","30"], hits:["","",""]},
-            {name: "destroyer2", length: 3, location:["22","32","42"], hits:["","",""]}
+            {name: "destroyer 1", length: 3, location:["10","20","30"], hits:["","",""]},
+            {name: "destroyer 2", length: 3, location:["22","32","42"], hits:["","",""]}
     ],
     numShips: 3,
     shipsSunk:0,
@@ -124,6 +124,10 @@ let display={
     displayMiss:function(location){
         let cell=document.getElementById(location);
         cell.setAttribute("class", "miss");
+    },
+    displayHint:function(msg){
+        let hintMsg=document.getElementById("hintMsg");
+        hintMsg.innerHTML=msg;
     }
 }
 
@@ -146,11 +150,18 @@ function handleKeyPress(event){
     }
 }
 
-//TODO
 function showShips(){
+    let msg=[];
     for(let i=0; i<logic.ships.length; i++){
-        console.log("Ship #" + parseInt(i+1) + ", name " + logic.ships[i].name + ", length: " + logic.ships[i].length);
-        console.log("Coordinates:" + logic.ships[i].location);
+        msg.push("Ship #" + parseInt(i+1) + ":   " + logic.ships[i].name + "<br>" + "Coordinates:   " + logic.ships[i].location + "<br><br>");
+        display.displayHint(msg.join(" "));
+    }
+    let hintBtn=document.getElementById("hintMsg");
+    if(hintBtn.style.visibility==="visible"){
+        hintBtn.style.visibility="hidden";
+        
+    } else {
+       hintBtn.style.visibility="visible";
     }
 }
 
@@ -184,6 +195,7 @@ function init(){
     logic.generateRandomShipLocation();
     let hintButton=document.getElementById("hint");
     hintButton.onclick=showShips;
+
 }
 window.onload=init;
 

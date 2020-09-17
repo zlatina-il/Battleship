@@ -72,7 +72,7 @@ input[type="button"]{
 #helpContainer{
     display: flex;
     flex-direction: column;
-    margin-top: 60px;
+    margin-top: 50px;
     text-align: center;
 }
 #helpContainer span{
@@ -80,6 +80,11 @@ input[type="button"]{
     font-style: italic;
     margin-right: 4px;
     margin-bottom: 20px;
+}
+#hintMsg{
+    margin-top: 20px;
+    font-size: 13px;
+    line-height: 1.5;
 }
 .hit{
     background-color: red;
