@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battleship Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="gameContainer">
+            <h3>Battleship Game</h3>
+            <div id="xCoords">
+                <div class="coord"></div>
+                <div class="coord" >0</div>
+                <div class="coord">1</div>
+                <div class="coord">2</div>
+                <div class="coord">3</div>
+                <div class="coord">4</div>
+                <div class="coord">5</div>
+                <div class="coord">6</div>
+                <div class="coord">7</div>
+                <div class="coord">8</div>
+                <div class="coord">9</div>
+            </div>
+            <div id="boardContainer">
+                <div id="yCoords">
+                    <div class="coord">A</div>
+                    <div class="coord">B</div>
+                    <div class="coord">C</div>
+                    <div class="coord">D</div>
+                    <div class="coord">E</div>
+                    <div class="coord">F</div>
+                    <div class="coord">G</div>
+                    <div class="coord">H</div>
+                    <div class="coord">I</div>
+                    <div class="coord">J</div>
+                </div>
+                <div id="gameBoard">
+                    <span id="00"></span>
+                    <span id="01"></span>
+                    <span id="02"></span>
+                    <span id="03"></span>
+                    <span id="04"></span>
+                    <span id="05"></span>
+                    <span id="06"></span>
+                    <span id="07"></span>
+                    <span id="08"></span>
+                    <span id="09"></span>
+
+                    <span id="10"></span>
+                    <span id="11"></span>
+                    <span id="12"></span>
+                    <span id="13"></span>
+                    <span id="14"></span>
+                    <span id="15"></span>
+                    <span id="16"></span>
+                    <span id="17"></span>
+                    <span id="18"></span>
+                    <span id="19"></span>
+
+                    <span id="20"></span>
+                    <span id="21"></span>
+                    <span id="22"></span>
+                    <span id="23"></span>
+                    <span id="24"></span>
+                    <span id="25"></span>
+                    <span id="26"></span>
+                    <span id="27"></span>
+                    <span id="28"></span>
+                    <span id="29"></span>
+
+                    <span id="30"></span>
+                    <span id="31"></span>
+                    <span id="32"></span>
+                    <span id="33"></span>
+                    <span id="34"></span>
+                    <span id="35"></span>
+                    <span id="36"></span>
+                    <span id="37"></span>
+                    <span id="38"></span>
+                    <span id="39"></span>
+
+                    <span id="40"></span>
+                    <span id="41"></span>
+                    <span id="42"></span>
+                    <span id="43"></span>
+                    <span id="44"></span>
+                    <span id="45"></span>
+                    <span id="46"></span>
+                    <span id="47"></span>
+                    <span id="48"></span>
+                    <span id="49"></span>
+
+                    <span id="50"></span>
+                    <span id="51"></span>
+                    <span id="52"></span>
+                    <span id="53"></span>
+                    <span id="54"></span>
+                    <span id="55"></span>
+                    <span id="56"></span>
+                    <span id="57"></span>
+                    <span id="58"></span>
+                    <span id="59"></span>
+
+                    <span id="60"></span>
+                    <span id="61"></span>
+                    <span id="62"></span>
+                    <span id="63"></span>
+                    <span id="64"></span>
+                    <span id="65"></span>
+                    <span id="66"></span>
+                    <span id="67"></span>
+                    <span id="68"></span>
+                    <span id="69"></span>
+
+                    <span id="70"></span>
+                    <span id="71"></span>
+                    <span id="72"></span>
+                    <span id="73"></span>
+                    <span id="74"></span>
+                    <span id="75"></span>
+                    <span id="76"></span>
+                    <span id="77"></span>
+                    <span id="78"></span>
+                    <span id="79"></span>
+
+                    <span id="80"></span>
+                    <span id="81"></span>
+                    <span id="82"></span>
+                    <span id="83"></span>
+                    <span id="84"></span>
+                    <span id="85"></span>
+                    <span id="86"></span>
+                    <span id="87"></span>
+                    <span id="88"></span>
+                    <span id="89"></span>
+
+                    <span id="90"></span>
+                    <span id="91"></span>
+                    <span id="92"></span>
+                    <span id="93"></span>
+                    <span id="94"></span>
+                    <span id="95"></span>
+                    <span id="96"></span>
+                    <span id="97"></span>
+                    <span id="98"></span>
+                    <span id="99"></span>
+                </div>
+            </div>
+        </div>
+        <div id="actionContainer">
+            <div id="msg">Enter coordinates (row, col), e.g. A0:</div>
+            <form action="">
+                <input type="text" name="playerMove" id="playerMove" placeholder="A0">
+                <input type="button" value="Send" id="sendMove">
+            </form>
+            <div id="helpContainer">
+                <span>Do you want to help?</span>
+                <input type="button" value="Hint" id="hint">
+            </div>
+        </div>
+    </div>
+    <script src="battleship.js"></script>
+</body>
+</html>
