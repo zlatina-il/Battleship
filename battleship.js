@@ -9,11 +9,12 @@ let logic={
     numShips: 3,
     shipsSunk:0,
 
-    generateShip: function(){
+    generateShip: function(shipLen){
         let orientation = Math.floor(Math.random() * 2);
         let row, col;
         let newLocation=[];
-    //Todo: shipLength????
+        let shipLength=shipLen;
+       
         if(orientation===0){
             //start row location of vertical ship
             row=Math.floor(Math.random() * (this.boardSize-shipLength));
@@ -26,21 +27,21 @@ let logic={
             col=Math.floor(Math.random() * (this.boardSize-shipLength));
         }
         
-        for(let i; i<shipLength; i++){
+        for(let i=0; i<shipLength; i++){
             if(orientation===0){
-                newLocations.push((row+i) + "" + col);
+                newLocation.push((row+i) + "" + col);
             } else {
-                newLocations.push(row + "" + (col+i));
+                newLocation.push(row + "" + (col+i));
             }
         }
-        return newLocation;   
+        return newLocation;       
     },
-    overlaps: function(locations){
+    overlaps: function(location){
         for(let i=0; i<this.numShips;i++){
             let ship=this.ships[i];
-            for(let j=0; j<locations.length;j++){
+            for(let j=0; j<location.length;j++){
                 //if we have location index 0 or greater, we have overlap
-                if(ship.locations.indexOf(locations[j])>=0){
+                if(ship.location.indexOf(location[j])>=0){
                     return true;
                 }
             }
@@ -52,7 +53,7 @@ let logic={
         // generate locations for each ship
         for(let i=0; i<this.numShips ;i++){
            do{
-                locations=this.generateShip();
+                locations=this.generateShip(this.ships[i].length);
             } while(this.overlaps(locations));
             this.ships[i].location=locations;
         }
@@ -147,7 +148,10 @@ function handleKeyPress(event){
 
 //TODO
 function showShips(){
-    
+    for(let i=0; i<logic.ships.length; i++){
+        console.log("Ship #" + parseInt(i+1) + ", name " + logic.ships[i].name + ", length: " + logic.ships[i].length);
+        console.log("Coordinates:" + logic.ships[i].location);
+    }
 }
 
 //funcion that convert the user move to number and check if his/her choice is correct
@@ -177,7 +181,7 @@ function init(){
     sendButton.onclick=handleSendMove;
     let userInput=document.getElementById("playerMove");
     userInput.onkeypress=handleKeyPress;
-    //logic.generateRandomShipLocation();
+    logic.generateRandomShipLocation();
     let hintButton=document.getElementById("hint");
     hintButton.onclick=showShips;
 }
